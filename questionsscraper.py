@@ -10,7 +10,6 @@ headers = {"Accept-Language": "en-US, en;q=0.5"}
 questions = []
 options = []
 answers = []
-anki_fronts = []
 links =[]
 
 
@@ -39,8 +38,6 @@ def QuestionListCreation(url):
         options_list.append(line.text)
     questions.append(question)
     options.append(options_list)
-    anki_fronts.append(question)
-    anki_fronts.append(options)
     answers.append(answer)
 
 
@@ -57,13 +54,6 @@ questions = pd.DataFrame({
     'answer': answers
 })
 
-#print(questions)
+print(questions)
 
-#questions.to_csv('cloud_questions.csv')
-
-anki_cards = pd.DataFrame({
-    'front': anki_fronts,
-    'back': answers
-})
-
-anki_cards.to_csv('anki_cloud.csv')
+questions.to_csv('cloud_questions.csv')
