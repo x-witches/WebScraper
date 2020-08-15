@@ -54,6 +54,15 @@ questions = pd.DataFrame({
     'answer': answers
 })
 
-print(questions)
+#print(questions)
 
-questions.to_csv('cloud_questions.csv')
+#questions.to_csv('cloud_questions.csv')
+
+cards_fronts = questions + options
+
+anki_cards = pd.DataFrame({
+    'front': cards_fronts,
+    'back': answers
+})
+
+anki_cards.to_csv('anki_cloud.csv')
